@@ -1,0 +1,20 @@
+:root {
+    --tab-light: #FFFFFF;
+    --tab-bg-light: #F1F5F9;
+    --nav-light: #ECECEC;
+    --text-color-light: #000000;
+    --acc-color-light: #000000;
+
+    --tab-dark: #1B1B1B;
+    --tab-bg-dark: #0F0F0F;
+    --nav-dark: #000000;
+    --text-color-dark: #FFFFFF;
+    --acc-color-light: #FFFFFF;
+    
+    --footer-color: #191919;
+    --accent-color: #2196F3;
+}
+
+* {
+    font-family: "Kanit", sans-serif;
+}
