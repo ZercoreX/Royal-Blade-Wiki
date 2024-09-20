@@ -1,18 +1,20 @@
 :root {
     --tab : #e9e9e9;
     --nav: #F1F5F9;
-    --left-nav: #dddddd;
+    --page-fill: #dddddd;
     --text-color: #000000;
     --acc-color: #000000;
     --box-shadow: #02020270;
 
     --footer-color: #191919;
     --accent-color: #1382dd;
+
+    --trans-dur: 0.3s;
 }
 .darkmode {
     --tab: #1B1B1B;
     --nav: #0F0F0F;
-    --left-nav: #242424;
+    --page-fill: #242424;
     --text-color: #dadadaf3;
     --acc-color: #FFFFFF;
     --box-shadow: #00000080;
@@ -29,16 +31,30 @@ html {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    text-decoration: none;
 
-    transition: color 0.4s, background-color 0.4s;
+    transition: color var(--trans-dur), background-color var(--trans-dur);
+}
+h2, h3,
+p,
+main span,
+button, 
+a,
+.page-section {
+    color: var(--text-color);
+    transition: color var(--trans-dur), background-color var(--trans-dur);
 }
 
 body {
     font-family: "Rubik", sans-serif;
     background-color: var(--tab);
     position: relative;
-    /* height: 10000px; */
+}
+
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
 }
 
 .container {
@@ -59,6 +75,12 @@ body {
 @media (min-width: 1200px) {
     .container {
         width: 1170px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 1400px;
     }
 }
 
@@ -110,7 +132,7 @@ header .container {
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    transition: color 0.1s;
+    transition: color 0s;
     color: var(--text-color);
 }
 .toggle-menu.active  {
@@ -186,7 +208,6 @@ nav {
 nav ul {
     display: flex;
     justify-content: center;
-    list-style: none;
     gap: 8px;
 }
 nav ul li {
@@ -220,7 +241,6 @@ nav a {
     justify-content: center;
     align-items: center;
     position: relative;
-    color: var(--text-color);
 }
 
 nav a::before {
@@ -231,7 +251,7 @@ nav a::before {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    transition: width 0.3s, background-color 0.2s;
+    transition: width var(--trans-dur), background-color var(--trans-dur);
     background-color: var(--acc-color);
 }
 
@@ -277,14 +297,14 @@ main .container {
     width: fit-content;
     display: flex;
     flex-direction: row-reverse;
+    z-index: 7;
 }
 .left-nav .left-nav-ul {
     padding: 12px;
     height: calc(100vh - 37px);
     width: 180px;
-    background-color: var(--left-nav);
-    transition: margin-left 0.4s, background-color 0.4s;
-    list-style: none;
+    background-color: var(--page-fill);
+    transition: margin-left var(--trans-dur), background-color var(--trans-dur);
 }
 @media (max-width: 767px) {
     .left-nav {
@@ -305,7 +325,7 @@ main .container {
     height: 32px;
     padding: 8px;
     margin-top: 16px;
-    margin-left: 16px;
+    margin-left: 4px;
     background-color: var(--accent-color);
 }
 @media (min-width: 767px) {
@@ -338,7 +358,6 @@ main .container {
 }
 
 .left-nav a {
-    color: var(--text-color);
     letter-spacing: 1px;
     padding: 4px 0 4px 12px;
     width: 100%;
@@ -351,7 +370,7 @@ main .container {
     top: 50%;
     transform: translateY(-50%);
     left: 0;
-    transition: height 0.3s, background-color 0.2s;
+    transition: height var(--trans-dur), background-color var(--trans-dur);
     background-color: var(--acc-color);
 }
 .left-nav a.active {
@@ -399,7 +418,7 @@ main .container {
     padding-left: 1px;
     border-radius: 6px;
     cursor: pointer;
-    transition: 0.4s;
+    transition: var(--trans-dur);
 }
 .top-page.show {
     right: 20px;
@@ -430,7 +449,6 @@ footer .logo {
 footer ul {
     display: flex;
     gap: 10px;
-    list-style: none;
     padding-bottom: 12px;
     font-size: 22px;
 }
@@ -441,7 +459,6 @@ footer ul a {
     padding: 8px;
     display: flex;
     border-radius: 8px;
-    transition: color 0.1s;
 }
 
 footer .credits {
@@ -467,15 +484,96 @@ footer .credits a {
 }
 
 /* section ============================ */
-section {
-    background-color: var(--left-nav);
-    color: var(--text-color);
-    margin: 0 40px;
+.page-section {
+    background-color: var(--page-fill);
+    margin-left: 0px;
     padding: 30px;
-    /* height: 10000px; */
 }
-@media (max-width: 768px) {
-    section {
-        margin: 30px 20px 0;
+.page-section .thum {
+    width: calc(100% + 60px);
+    margin: -30px -30px 30px;
+    height: 180px;
+    background-image: url(../assets/imgs/thum3.png) ;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (max-width: 425px) {
+    .page-section.thum {
+        display: none;
     }
+}
+
+.page-content {
+    position: relative;
+}
+
+.section-heading {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: var(--page-fill);
+    padding: 8px 20px;
+    position: absolute;
+    top: -60px;
+    margin-bottom: 20px;
+    text-shadow: var(--box-shadow) 0px 0px 4px;
+}
+
+.page-section p,
+.page-section span {
+    line-height: 1.4;
+    font-size: 17px;
+    letter-spacing: 0.1px;
+}
+
+.page-section a {
+    color: rgb(16, 68, 209);
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+@media (hover: hover) {
+    .page-section a:active,
+    .page-section a:hover {
+        color: rgb(75, 117, 233);
+    }
+    .quick-link a:hover {
+        color: #414141;
+    }
+}
+
+.quick-link {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 10px;
+}
+.quick-link li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.quick-link a {
+    background-color: white;
+    color: var(--c);
+    padding: 8px 16px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+}
+@media (max-width: 566px) {
+    .quick-link a {
+        width: 100%;
+    }
+}
+.quick-link ion-icon {
+    transition: color 0s;
+    margin-right: 10px;
+}
+
+.page-section h3 {
+    text-transform: uppercase;
+    font-weight: 600;
 }
