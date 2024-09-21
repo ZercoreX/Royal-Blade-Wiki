@@ -16,50 +16,55 @@
     <link rel="stylesheet" href="styles/Fonts/Rubik/Rubik.css">
 
     <!-- scripts -->
-    <script type="text/javascript" src="scripts/darkmode.js" defer></script>
 
     <!-- styles -->
     <link rel="stylesheet" href="styles/core.css">
-    <link rel="stylesheet" href="styles/home.css">
-
+    
     <!-- -- -->
-    <title>Home</title>
+    <title>Home - Overview</title>
+    <meta name="page" content="home">
+    <meta name="tab" content="overview">
 </head>
 
 <body class="-darkmode">
-    <header class="box-shadow">
-        <div class="container">
-            <div class="logo">
-                <span>Royal Blade Wiki</span>
+    <div class="ghost-container top">
+        <header class="box-shadow">
+            <div class="container">
+                <div class="logo">
+                    <span>Royal Blade Wiki</span>
+                </div>
+                <div class="right-nav">
+                    <a class="toggle-menu">
+                        <ion-icon name="menu"></ion-icon>
+                    </a>
+                    <button id="theme-switch">
+                        <ion-icon name="moon"></ion-icon>
+                        <ion-icon name="sunny"></ion-icon>
+                    </button>
+                </div>
             </div>
-            <div class="right-nav">
-                <a class="toggle-menu">
-                    <ion-icon name="menu"></ion-icon>
-                </a>
-                <button id="theme-switch">
-                    <ion-icon name="moon"></ion-icon>
-                    <ion-icon name="sunny"></ion-icon>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <nav class="box-shadow">
-        <ul>
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Mechanics</a></li>
-            <li><a href="#">DataBase</a></li>
-            <li><a href="#">Universes</a></li>
-            <li><a href="#">Market</a></li>
-            <li><a href="#">Store</a></li>
-        </ul>
-    </nav>
-
-    <button class="top-page box-shadow">
-        <ion-icon name="caret-up"></ion-icon>
-    </button>
+        </header>
+        
+        <nav class="box-shadow">
+            <ul>
+                <li><a href="index.html" page-data="home">Home</a></li>
+                <li><a href="mechanics.html" page-data="mechanics">Mechanics</a></li>
+                <li><a href="#" page-data="database">DataBase</a></li>
+                <li><a href="#" page-data="universes">Universes</a></li>
+                <li><a href="#" page-data="market">Market</a></li>
+                <li><a href="#" page-data="store">Store</a></li>
+            </ul>
+        </nav>
+        
+        <button class="top-page box-shadow">
+            <ion-icon name="caret-up"></ion-icon>
+        </button>
+    </div>
 
     <main>
+        <!-- styles -->
+        <link rel="stylesheet" href="styles/home.css">
+
         <div class="container">
             <div class="left-nav">
                 <div class="nav-toggle box-shadow">
@@ -67,16 +72,17 @@
                     <ion-icon name="caret-back"></ion-icon>
                 </div>
                 <ul class="left-nav-ul box-shadow">
-                    <li><a href="#" class="active">Overview</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Updates</a></li>
+                    <li><button tab-data="overview">Overview</button></li>
+                    <li><button tab-data="news">News</button></li>
+                    <li><button tab-data="updates">Updates</button></li>
                 </ul>
             </div>
 
             <section class="page-section box-shadow">
                 <div class="thum"></div>
-                <div class="page-content">
-                    <h2 class="section-heading box-shadow">Overview</h2>
+
+                <div class="tab" id="overview">
+                    <h2 class="tab-heading box-shadow">Overview</h2>
                     <p>
                         Welcome to the official Royal-Blade wiki, your comprehensive guide to everything in the world of Royal-Blade!
                     </p>
@@ -132,48 +138,63 @@
                         </li>
                     </ul>
                 </div>
+
+                <div class="tab" id="news">
+                    <h2 class="tab-heading box-shadow">News</h2>
+                    <p>news goes here.</p>
+                </div>
+                <div class="tab" id="updates">
+                    <h2 class="tab-heading box-shadow">Updates</h2>
+                    <p>updates go here.</p>
+                </div>
+                
             </section>
             
         </div>
     </main>
 
-    <footer class="box-shadow">
-        <div class="container">
-            <div class="logo">
-                <span>Royal Blade Wiki</span>
+    <div class="ghost-container bottom">
+        <footer class="box-shadow">
+            <div class="container">
+                <div class="logo">
+                    <span>Royal Blade Wiki</span>
+                </div>
+                <ul>
+                    <li>
+                        <a href="https://www.roblox.com/games/5236473035" target="_blank" class="game">
+                            <ion-icon style="--c: #33aa8c" name="game-controller-sharp"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.roblox.com/groups/6825668/Royal-Verse" target="_blank" class="group">
+                            <ion-icon style="--c: #bfc236" name="book-sharp"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://discord.gg/aDqqdwb" target="_blank" class="discord">
+                            <ion-icon style="--c: rgb(88, 101, 242)" name="logo-discord"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/RoyalVerseGames" target="_blank" class="twitter">
+                            <ion-icon style="--c: rgb(29, 161, 242)" name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+                <span class="credits">Developed by <a href="https://twitter.com/ZercoreX" target="_blank">&lt;/ Zercore &gt;
+                    </a></span>
             </div>
-            <ul>
-                <li>
-                    <a href="https://www.roblox.com/games/5236473035" target="_blank" class="game">
-                        <ion-icon style="--c: #33aa8c" name="game-controller-sharp"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.roblox.com/groups/6825668/Royal-Verse" target="_blank" class="group">
-                        <ion-icon style="--c: #bfc236" name="book-sharp"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://discord.gg/aDqqdwb" target="_blank" class="discord">
-                        <ion-icon style="--c: rgb(88, 101, 242)" name="logo-discord"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/RoyalVerseGames" target="_blank" class="twitter">
-                        <ion-icon style="--c: rgb(29, 161, 242)" name="logo-twitter"></ion-icon>
-                    </a>
-                </li>
-            </ul>
-            <span class="credits">Developed by <a href="https://twitter.com/ZercoreX" target="_blank">&lt;/ Zercore &gt;
-                </a></span>
-        </div>
-    </footer>
+        </footer>
+        
+        <!-- ion-icons -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <!-- ion-icons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <script type="text/javascript" src="scripts/nav.js"></script>
+        <!-- scripts -->
+        <script type="text/javascript" src="scripts/darkmode.js"></script>
+        <script src="scripts/nav.js"></script>
+        <script src="scripts/pages.js" defer></script>
+    </div>
 </body>
 
 </html>

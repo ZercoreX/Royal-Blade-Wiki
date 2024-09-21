@@ -84,10 +84,14 @@ ul {
     }
 }
 
+.ghost-container {
+    display: contents;
+}
+
 .box-shadow {
-    box-shadow: var(--box-shadow) 0 0px 6px;
-    -webkit-box-shadow: var(--box-shadow) 0 0px 6px;
     -moz-box-shadow: var(--box-shadow) 0 0px 6px;
+    -webkit-box-shadow: var(--box-shadow) 0 0px 6px;
+    box-shadow: var(--box-shadow) 0 0px 6px;
 }
 
 /* header & nav ============================ */
@@ -302,7 +306,7 @@ main .container {
 .left-nav .left-nav-ul {
     padding: 12px;
     height: calc(100vh - 37px);
-    width: 180px;
+    width: 170px;
     background-color: var(--page-fill);
     transition: margin-left var(--trans-dur), background-color var(--trans-dur);
 }
@@ -350,19 +354,22 @@ main .container {
     justify-content: left;
     align-items: center;
 }
-.left-nav li:has(> a.active) {
+.left-nav li:has(> button.active) {
     background-color: #d3d3d3;
 }
-.darkmode .left-nav li:has(> a.active) {
+.darkmode .left-nav li:has(> button.active) {
     background-color: #2e2e2e;
 }
 
-.left-nav a {
+.left-nav button {
     letter-spacing: 1px;
     padding: 4px 0 4px 12px;
     width: 100%;
+    border: none;
+    text-align: left;
+    background: none;
 }
-.left-nav a::before {
+.left-nav button::before {
     content: '';
     width: 2px;
     height:0;
@@ -373,36 +380,36 @@ main .container {
     transition: height var(--trans-dur), background-color var(--trans-dur);
     background-color: var(--acc-color);
 }
-.left-nav a.active {
+.left-nav button.active {
     color: var(--accent-color);
     font-weight: 500;
 }
-.left-nav a.active::before {
+.left-nav button.active::before {
     background-color: var(--accent-color);
     height: 100%;
 }
 @media (hover: hover) {
-    .left-nav a:active {
+    .left-nav button:active {
         color: var(--accent-color);
     }
-    .left-nav a:active::before {
+    .left-nav button:active::before {
         background-color: var(--accent-color);
     }
-    .left-nav a:hover::before {
+    .left-nav button:hover::before {
         height: 100%;
     }
 
-    .left-nav li:has(> a:hover) {
+    .left-nav li:has(> button:hover) {
         background-color: #d3d3d3;
     }
-    .darkmode .left-nav li:has(> a:hover) {
+    .darkmode .left-nav li:has(> button:hover) {
         background-color: #2e2e2e;
     }
 }
 
 /* top-page-button ============================ */
 .top-page {
-    z-index: 9;
+    z-index: 10;
     position: fixed;
     bottom: 20px;
     right: -40px;
@@ -412,7 +419,7 @@ main .container {
     justify-content: center;
     align-items: center;
     border: none;
-    background-color: var(--left-nav);
+    background-color: var(--page-fill);
     color: var(--acc-color);
     font-size: 18px;
     padding-left: 1px;
@@ -504,11 +511,15 @@ footer .credits a {
     }
 }
 
-.page-content {
+.tab {
     position: relative;
+    display: none;
+}
+.tab.active {
+    display: block;
 }
 
-.section-heading {
+.tab-heading {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
@@ -521,10 +532,16 @@ footer .credits a {
 }
 
 .page-section p,
-.page-section span {
+.page-section span,
+.page-section h3 {
     line-height: 1.4;
     font-size: 17px;
     letter-spacing: 0.1px;
+}
+
+.page-section h3 {
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .page-section a {
@@ -538,7 +555,8 @@ footer .credits a {
         color: rgb(75, 117, 233);
     }
     .quick-link a:hover {
-        color: #414141;
+        color: var(--c);
+        
     }
 }
 
@@ -547,6 +565,7 @@ footer .credits a {
     flex-direction: column;
     gap: 10px;
     padding: 20px 10px;
+    font-size: 17px;
 }
 .quick-link li {
     display: flex;
@@ -555,25 +574,21 @@ footer .credits a {
 }
 .quick-link a {
     background-color: white;
-    color: var(--c);
+    color: #242424;
     padding: 8px 16px;
     border-radius: 6px;
     display: flex;
     justify-content: start;
     align-items: center;
-    width: 50%;
-}
-@media (max-width: 566px) {
-    .quick-link a {
-        width: 100%;
-    }
+    width: 250px;
+    
+    -moz-box-shadow: var(--box-shadow) 0 0px 6px;
+    -webkit-box-shadow: var(--box-shadow) 0 0px 6px;
+    box-shadow: var(--box-shadow) 0 0px 6px;
 }
 .quick-link ion-icon {
     transition: color 0s;
-    margin-right: 10px;
+    margin-right: 12px;
+    font-size: 22px;
 }
 
-.page-section h3 {
-    text-transform: uppercase;
-    font-weight: 600;
-}
