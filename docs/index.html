@@ -16,17 +16,19 @@
     <link rel="stylesheet" href="styles/Fonts/Rubik/Rubik.css">
 
     <!-- scripts -->
+    <script>let inserted = true;</script>
+    <script src="scripts/darkmode.js"></script>
 
     <!-- styles -->
     <link rel="stylesheet" href="styles/core.css">
     
     <!-- -- -->
     <title>Home - Overview</title>
-    <meta name="page" content="home">
-    <meta name="tab" content="overview">
+    <meta name="page" content="Home">
+    <meta name="tab" content="Overview">
 </head>
 
-<body class="-darkmode">
+<body>
     <div class="ghost-container top">
         <header class="box-shadow">
             <div class="container">
@@ -35,11 +37,11 @@
                 </div>
                 <div class="right-nav">
                     <a class="toggle-menu">
-                        <ion-icon name="menu"></ion-icon>
+                        <ion-icon name="menu" class="icon"></ion-icon>
                     </a>
                     <button id="theme-switch">
-                        <ion-icon name="moon"></ion-icon>
-                        <ion-icon name="sunny"></ion-icon>
+                        <ion-icon name="moon" class="icon"></ion-icon>
+                        <ion-icon name="sunny" class="icon"></ion-icon>
                     </button>
                 </div>
             </div>
@@ -47,48 +49,57 @@
         
         <nav class="box-shadow">
             <ul>
-                <li><a href="index.html" page-data="home">Home</a></li>
-                <li><a href="mechanics.html" page-data="mechanics">Mechanics</a></li>
-                <li><a href="#" page-data="database">DataBase</a></li>
-                <li><a href="#" page-data="universes">Universes</a></li>
-                <li><a href="#" page-data="market">Market</a></li>
-                <li><a href="#" page-data="store">Store</a></li>
+                <li><a href="index.html" page-data="Home">Home</a></li>
+                <li><a href="mechanics.html" page-data="Mechanics">Mechanics</a></li>
+                <li><a href="database.html" page-data="Database">DataBase</a></li>
+                <li><a href="universes.html" page-data="Universes">Universes</a></li>
+                <li><a href="store.html" page-data="Store">Store</a></li>
+                <li><a href="" page-data="Market" class="disabled">Market</a></li>
             </ul>
         </nav>
         
         <button class="top-page box-shadow">
-            <ion-icon name="caret-up"></ion-icon>
+            <ion-icon name="caret-up" class="icon"></ion-icon>
         </button>
     </div>
 
     <main>
         <!-- styles -->
-        <link rel="stylesheet" href="styles/home.css">
-
+        <link rel="stylesheet" href="styles/pages/home.css">
+        
         <div class="container">
             <div class="left-nav">
                 <div class="nav-toggle box-shadow">
-                    <ion-icon name="caret-forward"></ion-icon>
-                    <ion-icon name="caret-back"></ion-icon>
+                    <ion-icon name="caret-forward" class="icon"></ion-icon>
+                    <ion-icon name="caret-back" class="icon"></ion-icon>
                 </div>
                 <ul class="left-nav-ul box-shadow">
-                    <li><button tab-data="overview">Overview</button></li>
-                    <li><button tab-data="news">News</button></li>
-                    <li><button tab-data="updates">Updates</button></li>
+                    <li><button tab-data="Overview">Overview</button></li>
+                    <li><button tab-data="News">News</button></li>
+                    <li><button tab-data="Updates">Updates</button></li>
                 </ul>
             </div>
 
+            <!-- page section -->
             <section class="page-section box-shadow">
                 <div class="thum"></div>
 
-                <div class="tab" id="overview">
+                <!-- overview tab -->
+                <div class="tab" id="Overview">
                     <h2 class="tab-heading box-shadow">Overview</h2>
+                    <div class="logo">
+                        <span>Royal Blade</span>
+                        <span>Wiki</span>
+                    </div>
+                    <h3 class="centered-heading">
+                        Welcome to the official Royal-Blade wiki!
+                    </h3>
                     <p>
-                        Welcome to the official Royal-Blade wiki, your comprehensive guide to everything in the world of Royal-Blade!
+                       Your comprehensive guide to everything in the world of Royal-Blade!
                     </p>
                     <br>
                     <p>
-                        Royal-Blade is an immersive open-world RPG developed by Royal Verse Studio and founded by &lt;/ Zercore &gt;.
+                        Royal-Blade is an immersive open-world RPG developed by Royal Verse Studio and founded by <span>&lt;/Zercore&gt;.</span>
                         Set in a vast, intricately designed world, players will embark on epic quests, discover hidden
                         secrets, and battle formidable enemies as they progress through a rich storyline filled with diverse
                         characters and challenging environments.
@@ -112,45 +123,95 @@
                     <h3>>> Royal-Blade official links</h3>
                     <ul class="quick-link">
                         <li>
-                            <a href="https://www.roblox.com/games/5236473035" target="_blank" style="--c: rgb(255, 193, 37)">
-                            <ion-icon name="game-controller-sharp"></ion-icon> The Game
+                            <a href="https://www.roblox.com/games/5236473035" target="_blank" style="--c: #33aa8c">
+                                <ion-icon name="game-controller" class="icon" style="--c: #33aa8c"></ion-icon>
+                                <span>Royal Blade</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://discord.gg/aDqqdwb" target="_blank" style="--c: rgb(88, 101, 242)">
-                                <ion-icon name="logo-discord"></ion-icon> Discord Community
+                                <ion-icon name="logo-discord" class="icon" style="--c: rgb(88, 101, 242)"></ion-icon>
+                                <span>Discord Community</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.roblox.com/groups/6825668/Royal-Verse" target="_blank" style="--c: #bfc236">
-                                <ion-icon name="book-sharp"></ion-icon> Royal Verse Group
+                                <ion-icon name="people" class="icon" style="--c: #bfc236"></ion-icon>
+                                <span>Royal Verse Group</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://twitter.com/RoyalVerseGames" target="_blank" style="--c: rgb(29, 161, 242)">
-                                <ion-icon name="logo-twitter"></ion-icon> Royal Verse Twitter
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/ZercoreX" target="_blank" style="--c: rgb(29, 161, 242)">
-                                <ion-icon name="logo-twitter"></ion-icon> Zercore's Twitter
+                                <ion-icon name="logo-twitter" class="icon" style="--c: rgb(29, 161, 242)"></ion-icon>
+                                <span>Royal Verse News</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="tab" id="news">
+                <!-- news tab -->
+                <div class="tab" id="News">
                     <h2 class="tab-heading box-shadow">News</h2>
                     <p>news goes here.</p>
                 </div>
-                <div class="tab" id="updates">
+
+                <!-- updates tab  -->   <!-- (fixes: --c: #ff4900) (changes: --c: #045dc2) (new: --c: #00af0d) -->
+                <div class="tab" id="Updates">
                     <h2 class="tab-heading box-shadow">Updates</h2>
-                    <p>updates go here.</p>
+                    <p>Here, you will find the detailed notes about all the updates & versions. </p>
+                    <br>
+
+                    <div class="messages-box"></div>
+
+                    <div class="update-message template box-shadow " style="display: none;">
+                        <button class="upd-msg-toggle box-shadow">
+                            <ion-icon name="caret-forward" class="icon"></ion-icon>
+                        </button>
+                    
+                        <div class="msg-header">
+                            <div class="profile-pic shape-60"><img src="assets/pfps/zercore-pic.webp" alt="Z"></div>
+                            <span class="sender"></span>
+                            <div class="date">
+                                <time datetime=""></time>
+                            </div>
+                        </div>
+                    
+                        <h3 class="update-title"></h3>
+                        <p class="message top">
+                        </p>
+                        <ul class="update-notes">
+                            <h3></h3>
+                            <li class="sub-list" style="--c: #00af0d">
+                                <h4></h4>
+                                <ul>
+                                </ul>
+                            </li>
+                            <li class="sub-list" style="--c: #045dc2">
+                                <h4></h4>
+                                <ul>
+                                </ul>
+                            </li>
+                            <li class="sub-list" style="--c: #ff4900">
+                                <h4></h4>
+                                <ul>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="message bottom">
+                        </p>
+                    </div>
                 </div>
                 
             </section>
             
         </div>
+
+        <!-- scripts -->
+
+        <script type="module">
+            import { initApp } from './scripts/database.js';
+            initApp();
+        </script>
     </main>
 
     <div class="ghost-container bottom">
@@ -162,22 +223,22 @@
                 <ul>
                     <li>
                         <a href="https://www.roblox.com/games/5236473035" target="_blank" class="game">
-                            <ion-icon style="--c: #33aa8c" name="game-controller-sharp"></ion-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.roblox.com/groups/6825668/Royal-Verse" target="_blank" class="group">
-                            <ion-icon style="--c: #bfc236" name="book-sharp"></ion-icon>
+                            <ion-icon name="game-controller" class="icon" style="--c: #33aa8c"></ion-icon>
                         </a>
                     </li>
                     <li>
                         <a href="https://discord.gg/aDqqdwb" target="_blank" class="discord">
-                            <ion-icon style="--c: rgb(88, 101, 242)" name="logo-discord"></ion-icon>
+                            <ion-icon name="logo-discord" class="icon" style="--c: rgb(88, 101, 242)"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.roblox.com/groups/6825668/Royal-Verse" target="_blank" class="group">
+                            <ion-icon name="people" class="icon" style="--c: #bfc236"></ion-icon>
                         </a>
                     </li>
                     <li>
                         <a href="https://twitter.com/RoyalVerseGames" target="_blank" class="twitter">
-                            <ion-icon style="--c: rgb(29, 161, 242)" name="logo-twitter"></ion-icon>
+                            <ion-icon name="logo-twitter" class="icon" style="--c: rgb(29, 161, 242)"></ion-icon>
                         </a>
                     </li>
                 </ul>
@@ -185,16 +246,16 @@
                     </a></span>
             </div>
         </footer>
-        
-        <!-- ion-icons -->
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </div>
 
-        <!-- scripts -->
-        <script type="text/javascript" src="scripts/darkmode.js"></script>
+    <!-- scripts -->
+    <div class="ghost-container scripts">
         <script src="scripts/nav.js"></script>
         <script src="scripts/pages.js" defer></script>
     </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

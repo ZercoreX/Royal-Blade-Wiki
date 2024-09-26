@@ -1,66 +1,75 @@
-page_meta = document.querySelector('meta[name=page]');
-tab_meta = document.querySelector('meta[name=tab]');
+// Cache meta and navigation elements
+const pageMeta = document.querySelector('meta[name=page]');
+const tabMeta = document.querySelector('meta[name=tab]');
+const pagesNav = document.querySelector('nav');
+const pageSectionContainer = document.querySelector(".page-section");
+const tabsNav = document.querySelector(".left-nav-ul");
 
-// set the active page button to active
-let pages_nav = document.querySelector('nav');
-let pages_buttons = pages_nav.querySelectorAll('a');
-pages_buttons.forEach(p_button => {
-    if (p_button.getAttribute('page-data') === page_meta.content) {
-        p_button.classList.add("active");
+// Set the active page button to active
+const pagesButtons = pagesNav.querySelectorAll('a');
+pagesButtons.forEach(pButton => {
+    if (pButton.getAttribute('page-data') === pageMeta.content) {
+        pButton.classList.add("active");
     }
 });
-// =============================================
-// load the last opened tab
-// set the active tab button to active
-let page_section_container = document.querySelector(".page-section");
-let tabs_nav = document.querySelector(".left-nav-ul");
 
-let tab_buttons = tabs_nav.querySelectorAll("button");
+// Load and manage tabs
+const tabButtons = tabsNav.querySelectorAll("button");
 
-function loadtab() {
-    at = page_section_container.querySelector(`#${tab_meta.content}`);
-    at.classList.add("active");
+function loadTab() {
+    const activeTab = pageSectionContainer.querySelector(`#${tabMeta.content}`);
+    activeTab?.classList.add("active");
 
-    const saved_tab = sessionStorage.getItem('tab-meta');
-    if (saved_tab) {
-        tab_meta.setAttribute('content', saved_tab);
-        tab_meta = document.querySelector('meta[name=tab]');
+    let savedTab = sessionStorage.getItem('tab-meta') || tabMeta.content;
+    let activeTabSection = pageSectionContainer.querySelector(`#${savedTab}`);
 
-        let ot = page_section_container.querySelector(".active");
-        ot.classList.remove("active");
-        
-        let at = page_section_container.querySelector(`#${saved_tab}`);
-        at.classList.add("active");
+    if (!activeTabSection) {
+        const fallbackTab = tabButtons[0].getAttribute('tab-data');
+        sessionStorage.setItem('tab-meta', fallbackTab);
+        activeTabSection = pageSectionContainer.querySelector(`#${fallbackTab}`);
+        savedTab = fallbackTab;
     }
 
-    tab_buttons.forEach(t_button => {
-        let b_tabdata = t_button.getAttribute('tab-data');
+    if (activeTabSection) {
+        pageSectionContainer.querySelector(".active")?.classList.remove("active");
+        activeTabSection.classList.add("active");
+        tabMeta.setAttribute('content', savedTab);
+    }
 
-        if (t_button.getAttribute('tab-data') === tab_meta.content) {
-            t_button.classList.add("active");
+    document.title = `${pageMeta.content} - ${tabMeta.content}`;
+
+    tabButtons.forEach(tButton => {
+        const tabData = tButton.getAttribute('tab-data');
+
+        if (tabData === tabMeta.content) {
+            tButton.classList.add("active");
         }
 
-        t_button.addEventListener("click", () => {
-            if (t_button.classList.contains("active")) {
-                return;
-            } else {
-                let ob = tabs_nav.querySelector(".active");
-                ob.classList.remove("active");
+        tButton.addEventListener("click", () => {
+            if (!tButton.classList.contains("active")) {
+                tabsNav.querySelector(".active")?.classList.remove("active");
+                tButton.classList.add("active");
 
-                t_button.classList.add("active");
+                pageSectionContainer.querySelector(".active")?.classList.remove("active");
+                const newActiveTab = pageSectionContainer.querySelector(`#${tabData}`);
+                newActiveTab.classList.add("active");
 
-                let at = page_section_container.querySelector(`#${b_tabdata}`);
-                let ot = page_section_container.querySelector(".active");
+                tabMeta.setAttribute('content', tabData);
+                sessionStorage.setItem('tab-meta', tabData);
 
-                at.classList.add("active");
-                ot.classList.remove("active");
+                document.title = `${pageMeta.content} - ${tabMeta.content}`;
+            }
 
-                tab_meta.setAttribute('content', b_tabdata);
-                sessionStorage.setItem('tab-meta', b_tabdata);
+            if (tabsNav.classList.contains("show")) {
+                tabsNav.classList.remove("show");
             }
         });
     });
 }
 
-window.onload = loadtab;
-// =============================================
+// Execute the loadTab function once the DOM is ready
+if (document.readyState === 'complete') {
+    loadTab();
+} else {
+    window.addEventListener('load', loadTab);
+}

@@ -46,9 +46,3 @@
     font-style: italic;
     src: url('Rubik-BoldItalic.woff2') format('woff2'), url('Rubik-BoldItalic.woff') format('woff');
 }
-/* Extra-bold */
-@font-face {
-    font-family: 'Rubik';
-    font-weight: 800;
-    src: url('Rubik-ExtraBold.woff2') format('woff2'), url('Rubik-ExtraBold.woff') format('woff');
-}

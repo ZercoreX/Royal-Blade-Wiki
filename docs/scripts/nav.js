@@ -27,3 +27,10 @@ page_top.onclick = function() {
         // behavior: "smooth",
     });
 }
+// ==================================
+// let update_message_toggles = document.querySelectorAll('.upd-msg-toggle');
+// update_message_toggles.forEach(toggle => {
+//     toggle.addEventListener("click", () => {
+//         toggle.parentElement.classList.toggle("show");
+//     });
+// });

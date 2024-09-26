@@ -5,6 +5,8 @@
     --text-color: #000000;
     --acc-color: #000000;
     --box-shadow: #02020270;
+    --box-bg: rgb(209, 203, 203);
+    --shape-bg: #f5d9d9;
 
     --footer-color: #191919;
     --accent-color: #1382dd;
@@ -18,6 +20,8 @@
     --text-color: #dadadaf3;
     --acc-color: #FFFFFF;
     --box-shadow: #00000080;
+    --box-bg: rgb(29, 27, 27);
+    --shape-bg: #2c2a2a;
 }
 
 /* global rules ============================ */
@@ -34,12 +38,8 @@ html {
 
     transition: color var(--trans-dur), background-color var(--trans-dur);
 }
-h2, h3,
-p,
-main span,
-button, 
-a,
-.page-section {
+
+h2, h3, p, main span, button, a, .page-section {
     color: var(--text-color);
     transition: color var(--trans-dur), background-color var(--trans-dur);
 }
@@ -94,6 +94,19 @@ ul {
     box-shadow: var(--box-shadow) 0 0px 6px;
 }
 
+.shape-60 {
+    overflow: hidden;
+    border-radius: 8px 50% 50%;
+    width: 60px;
+    height: 60px;
+    background-color: var(--shape-bg);
+}
+.shape-60 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* header & nav ============================ */
 header, nav {
     width: 100%;
@@ -114,14 +127,16 @@ header .container {
 .logo {
     padding: 10px 0px;
     padding-right: 10px;
+    margin-right: auto;
+    text-shadow: #000000 1px 1px 2px;
+}
+.logo span {
     font-family: "Kanit", sans-serif;
     font-size: 24px;
     text-transform: uppercase;
     font-weight: 600;
-    color: rgb(255, 193, 37);
-    margin-right: auto;
     letter-spacing: 2px;
-    text-shadow: #000000 1px 1px 2px;
+    color: rgb(255, 193, 37);
 }
 .darkmode .logo {
     text-shadow: none;
@@ -193,13 +208,13 @@ header .right-nav {
     background-color: #f0e7e7;
 }
 
-#theme-switch ion-icon:last-child {
+#theme-switch .icon:last-child {
     display: none;
 }
-.darkmode #theme-switch ion-icon:first-child {
+.darkmode #theme-switch .icon:first-child {
     display: none;
 }
-.darkmode #theme-switch ion-icon:last-child {
+.darkmode #theme-switch .icon:last-child {
     display: initial;
 }
 
@@ -277,6 +292,13 @@ nav a.active::before {
         width: 100%;
     }
 }
+nav a.disabled {
+    color: #838181;
+    pointer-events: none;
+}
+nav a.disabled::before {
+    display: none;
+}
 
 /* main ============================ */
 main {
@@ -306,7 +328,7 @@ main .container {
 .left-nav .left-nav-ul {
     padding: 12px;
     height: calc(100vh - 37px);
-    width: 170px;
+    width: 180px;
     background-color: var(--page-fill);
     transition: margin-left var(--trans-dur), background-color var(--trans-dur);
 }
@@ -337,13 +359,13 @@ main .container {
         display: none;
     }
 }
-.left-nav .nav-toggle ion-icon:last-child {
+.left-nav .nav-toggle .icon:last-child {
     display: none;
 }
-.left-nav .nav-toggle.active ion-icon:last-child {
+.left-nav .nav-toggle.active .icon:last-child {
     display: block;
 }
-.left-nav .nav-toggle.active ion-icon:first-child {
+.left-nav .nav-toggle.active .icon:first-child {
     display: none;
 }
 
@@ -481,7 +503,7 @@ footer .credits a {
 } 
 
 @media (hover: hover) {
-    footer ul a:hover ion-icon {
+    footer ul a:hover .icon {
         color: var(--c);
     }
     footer .credits a:active,
@@ -505,11 +527,7 @@ footer .credits a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-@media (max-width: 425px) {
-    .page-section.thum {
-        display: none;
-    }
-}
+
 
 .tab {
     position: relative;
@@ -531,12 +549,22 @@ footer .credits a {
     text-shadow: var(--box-shadow) 0px 0px 4px;
 }
 
+@media (max-width: 426px) {
+    .page-section .thum {
+        width: calc(100% + 32px);
+        margin: -20px -16px 30px;
+    }
+    .page-section {
+        padding: 20px 16px;
+    }
+}
+
 .page-section p,
-.page-section span,
+.page-section span:not(.logo span),
 .page-section h3 {
     line-height: 1.4;
-    font-size: 17px;
-    letter-spacing: 0.1px;
+    font-size: 18px;
+    letter-spacing: 0.6px;
 }
 
 .page-section h3 {
@@ -554,9 +582,8 @@ footer .credits a {
     .page-section a:hover {
         color: rgb(75, 117, 233);
     }
-    .quick-link a:hover {
+    .quick-link a:hover .icon {
         color: var(--c);
-        
     }
 }
 
@@ -581,14 +608,25 @@ footer .credits a {
     justify-content: start;
     align-items: center;
     width: 250px;
-    
+    transition: none;
+
     -moz-box-shadow: var(--box-shadow) 0 0px 6px;
     -webkit-box-shadow: var(--box-shadow) 0 0px 6px;
     box-shadow: var(--box-shadow) 0 0px 6px;
 }
-.quick-link ion-icon {
-    transition: color 0s;
+.quick-link span {
+    color: var(--accent-color);
+}
+.quick-link .icon {
     margin-right: 12px;
     font-size: 22px;
 }
 
+.centered-heading {
+    margin: 20px;
+    text-align: center;
+}
+
+span {
+    line-break:auto;
+}

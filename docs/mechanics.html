@@ -16,40 +16,79 @@
  
      <!-- scripts -->
      <script src="scripts/jquery-3.7.1.min.js"></script>
-     <script src="scripts/insert.js" defer></script>
+     <script src="scripts/insert.js"></script>
+     <script src="scripts/darkmode.js"></script>
  
      <!-- styles -->
      <link rel="stylesheet" href="styles/core.css">
      
      <!-- -- -->
      <title>Mechanics</title>
-     <meta name="page" content="mechanics">
-     <meta name="tab" content="overview">
+     <meta name="page" content="Mechanics">
+     <meta name="tab" content="Overview">
 </head>
 <body>
     <div class="ghost-container top"></div>
 
     <main>
-        <link rel="stylesheet" href="styles/mechanics.css">
+        <link rel="stylesheet" href="styles/pages/mechanics.css">
 
         <div class="container">
             <div class="left-nav">
                 <div class="nav-toggle box-shadow">
-                    <ion-icon name="caret-forward"></ion-icon>
-                    <ion-icon name="caret-back"></ion-icon>
+                    <ion-icon name="caret-forward" class="icon"></ion-icon>
+                    <ion-icon name="caret-back" class="icon"></ion-icon>
                 </div>
                 <ul class="left-nav-ul box-shadow">
-                    <li><button tab-data="overview">overview</button></li>
-                    <li><button tab-data=""></button></li>
-                    <li><button tab-data=""></button></li>
+                    <li><button tab-data="Overview">Overview</button></li>
+                    <li><button tab-data="Character">Character</button></li>
+                    <li><button tab-data="Controls">Controls & UI</button></li>
+                    <li><button tab-data="Resources">Resources</button></li>
+                    <li><button tab-data="Combat">Combat</button></li>
+                    <li><button tab-data="Exploration">Exploration</button></li>
+                    <li><button tab-data="Progression">Progression</button></li>
+                    <li><button tab-data="Workshops">Workshops</button></li>
+                    <li><button tab-data="Trade">Trade</button></li>
                 </ul>
             </div>
 
             <section class="page-section box-shadow">
                 <div class="thum"></div>
 
-                <div class="tab" id="overview">
+                <div class="tab" id="Overview">
                     <h2 class="tab-heading box-shadow">Overview</h2>
+                    <p>nothing here just yet.</p>
+                </div>
+                <div class="tab" id="Character">
+                    <h2 class="tab-heading box-shadow">Character</h2>
+                    <p>nothing here just yet.</p>
+                </div>
+                <div class="tab" id="Controls">
+                    <h2 class="tab-heading box-shadow">Controls & UI</h2>
+                    <p>nothing here just yet.</p>
+                </div>
+                <div class="tab" id="Resources">
+                    <h2 class="tab-heading box-shadow">Resources</h2>
+                    <p>nothing here just yet.</p>
+                </div>
+                <div class="tab" id="Combat">
+                    <h2 class="tab-heading box-shadow">Combat</h2>
+                    <p>nothing here just yet.</p>
+                </div>
+                <div class="tab" id="Exploration">
+                    <h2 class="tab-heading box-shadow">Exploration</h2>
+                    <p>nothing here just yet.</p>
+                </div>
+                <div class="tab" id="Progression">
+                    <h2 class="tab-heading box-shadow">Progression</h2>
+                    <p>nothing here just yet.</p>
+                </div>
+                <div class="tab" id="Workshops">
+                    <h2 class="tab-heading box-shadow">Workshops</h2>
+                    <p>nothing here just yet.</p>
+                </div>
+                <div class="tab" id="Trade">
+                    <h2 class="tab-heading box-shadow">Trade</h2>
                     <p>nothing here just yet.</p>
                 </div>
 
@@ -59,5 +98,8 @@
     </main>
 
     <div class="ghost-container bottom"></div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

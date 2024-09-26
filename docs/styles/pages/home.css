@@ -24,6 +24,7 @@
     flex-direction: column;
     overflow: hidden;
     margin-bottom: 20px;
+    transition: max-height var(--trans-dur);
     position: relative;
     min-height: 36px;
     justify-content: center;
@@ -94,7 +95,7 @@
 
 /* update msg title */
 .update-title {
-    margin: 6px 50px 4px 18px;
+    margin: 4px 50px 4px 18px;
 }
 
 /* update msg message */
