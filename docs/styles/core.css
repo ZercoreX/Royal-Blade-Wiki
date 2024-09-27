@@ -35,13 +35,11 @@ html {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-
-    transition: color var(--trans-dur), background-color var(--trans-dur);
 }
 
 h2, h3, p, main span, button, a, .page-section {
     color: var(--text-color);
-    transition: color var(--trans-dur), background-color var(--trans-dur);
+    /* transition: color var(--trans-dur), background-color var(--trans-dur); */
 }
 
 body {
@@ -92,6 +90,10 @@ ul {
     -moz-box-shadow: var(--box-shadow) 0 0px 6px;
     -webkit-box-shadow: var(--box-shadow) 0 0px 6px;
     box-shadow: var(--box-shadow) 0 0px 6px;
+}
+
+ion-icon {
+    transition: color var(--trans-dur), background-color var(--trans-dur);
 }
 
 .shape-60 {
@@ -330,7 +332,7 @@ main .container {
     height: calc(100vh - 37px);
     width: 180px;
     background-color: var(--page-fill);
-    transition: margin-left var(--trans-dur), background-color var(--trans-dur);
+    transition: margin-left var(--trans-dur);
 }
 @media (max-width: 767px) {
     .left-nav {
@@ -353,6 +355,7 @@ main .container {
     margin-top: 16px;
     margin-left: 4px;
     background-color: var(--accent-color);
+    color: #000000;
 }
 @media (min-width: 767px) {
     .left-nav .nav-toggle {
@@ -608,7 +611,6 @@ footer .credits a {
     justify-content: start;
     align-items: center;
     width: 250px;
-    transition: none;
 
     -moz-box-shadow: var(--box-shadow) 0 0px 6px;
     -webkit-box-shadow: var(--box-shadow) 0 0px 6px;
