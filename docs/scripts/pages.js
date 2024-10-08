@@ -50,7 +50,7 @@ function loadTab() {
                 tabsNav.querySelector(".active")?.classList.remove("active");
                 tButton.classList.add("active");
 
-                pageSectionContainer.querySelector(".active")?.classList.remove("active");
+                pageSectionContainer.querySelector(".tab.active")?.classList.remove("active");
                 const newActiveTab = pageSectionContainer.querySelector(`#${tabData}`);
                 newActiveTab.classList.add("active");
 

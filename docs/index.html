@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,27 +120,27 @@
                     </p>
                     <br>
                     <h3>>> Royal-Blade official links</h3>
-                    <ul class="quick-link">
+                    <ul class="quick-links">
                         <li>
-                            <a href="https://www.roblox.com/games/5236473035" target="_blank" style="--c: #33aa8c">
+                            <a href="https://www.roblox.com/games/5236473035" target="_blank" style="--c: #24ddaf" class="box-shadow">
                                 <ion-icon name="game-controller" class="icon" style="--c: #33aa8c"></ion-icon>
                                 <span>Royal Blade</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://discord.gg/aDqqdwb" target="_blank" style="--c: rgb(88, 101, 242)">
+                            <a href="https://discord.gg/aDqqdwb" target="_blank" style="--c: rgb(88, 101, 242)" class="box-shadow">
                                 <ion-icon name="logo-discord" class="icon" style="--c: rgb(88, 101, 242)"></ion-icon>
                                 <span>Discord Community</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.roblox.com/groups/6825668/Royal-Verse" target="_blank" style="--c: #bfc236">
+                            <a href="https://www.roblox.com/groups/6825668/Royal-Verse" target="_blank" style="--c: #bfc236" class="box-shadow">
                                 <ion-icon name="people" class="icon" style="--c: #bfc236"></ion-icon>
                                 <span>Royal Verse Group</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/RoyalVerseGames" target="_blank" style="--c: rgb(29, 161, 242)">
+                            <a href="https://twitter.com/RoyalVerseGames" target="_blank" style="--c: rgb(29, 161, 242)" class="box-shadow">
                                 <ion-icon name="logo-twitter" class="icon" style="--c: rgb(29, 161, 242)"></ion-icon>
                                 <span>Royal Verse News</span>
                             </a>
@@ -152,7 +151,9 @@
                 <!-- news tab -->
                 <div class="tab" id="News">
                     <h2 class="tab-heading box-shadow">News</h2>
-                    <p>news goes here.</p>
+                    <p>news/leaks for the coming changes, Updates.</p>
+                    <br>
+                    <div class="messages-box"></div>
                 </div>
 
                 <!-- updates tab  -->   <!-- (fixes: --c: #ff4900) (changes: --c: #045dc2) (new: --c: #00af0d) -->
@@ -160,57 +161,67 @@
                     <h2 class="tab-heading box-shadow">Updates</h2>
                     <p>Here, you will find the detailed notes about all the updates & versions. </p>
                     <br>
-
                     <div class="messages-box"></div>
+                </div>
 
-                    <div class="update-message template box-shadow " style="display: none;">
-                        <button class="upd-msg-toggle box-shadow">
-                            <ion-icon name="caret-forward" class="icon"></ion-icon>
-                        </button>
-                    
-                        <div class="msg-header">
-                            <div class="profile-pic shape-60"><img src="assets/pfps/zercore-pic.webp" alt="Z"></div>
-                            <span class="sender"></span>
-                            <div class="date">
-                                <time datetime=""></time>
-                            </div>
+                <!-- message template -->
+                <div class="message template box-shadow show" style="display: none;">
+                    <button class="msg-toggle box-shadow">
+                        <ion-icon name="caret-forward" class="icon"></ion-icon>
+                    </button>
+                
+                    <div class="msg-header">
+                        <div class="profile-pic shape-60"><img src="assets/imgs/pfps/zercore-pic.webp" alt="Z"></div>
+                        <span class="sender"></span>
+                        <div class="date">
+                            <time datetime=""></time>
                         </div>
-                    
-                        <h3 class="update-title"></h3>
-                        <p class="message top">
-                        </p>
-                        <ul class="update-notes">
-                            <h3></h3>
-                            <li class="sub-list" style="--c: #00af0d">
-                                <h4></h4>
-                                <ul>
-                                </ul>
-                            </li>
-                            <li class="sub-list" style="--c: #045dc2">
-                                <h4></h4>
-                                <ul>
-                                </ul>
-                            </li>
-                            <li class="sub-list" style="--c: #ff4900">
-                                <h4></h4>
-                                <ul>
-                                </ul>
-                            </li>
-                        </ul>
-                        <p class="message bottom">
-                        </p>
                     </div>
+                
+                    <h3 class="msg-title"><div class="title-1"></div><div class="title-2"></div></h3>
+                    <p class="message-label top">
+                    </p>
+                    <ul class="update-notes">
+                        <h3></h3>
+                        <li class="sub-list" style="--c: #00af0d">
+                            <h4></h4>
+                            <ul>
+                            </ul>
+                        </li>
+                        <li class="sub-list" style="--c: #045dc2">
+                            <h4></h4>
+                            <ul>
+                            </ul>
+                        </li>
+                        <li class="sub-list" style="--c: #ff4900">
+                            <h4></h4>
+                            <ul>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div class="image-slider">
+                        <div class="list"></div>
+
+                        <div class="buttons">
+                            <button id="prev" class="box-shadow">&lt;</button>
+                            <button id="next" class="box-shadow">&gt;</button>
+                        </div>
+                        
+                        <ul class="dots"></ul>
+                    </div>
+
+                    <p class="message-label bottom">
+                    </p>
                 </div>
                 
             </section>
-            
         </div>
 
         <!-- scripts -->
-
         <script type="module">
-            import { initApp } from './scripts/database.js';
-            initApp();
+            import { initDataBase } from './scripts/database/database.js';
+            initDataBase();
         </script>
     </main>
 
@@ -257,5 +268,4 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>
