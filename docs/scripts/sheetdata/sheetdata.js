@@ -1,9 +1,17 @@
-import { GetSheet } from './database-fetch.js';
+import { GetSheet } from './data-fetch.js';
 import { messageDisplay } from './message-display.js';
+import { RunDataBase } from './database..js';
 
 let pageMeta = document.querySelector('meta[name=page]');
 let page_database = {
-  Home: { Updates:"Update-Notes", News:"News" },
+  Home: { 
+    Updates:["Update-Notes"], 
+    News:["News"] 
+  },
+  Database: { 
+    Items: ["Longswords","Greatswords","Katanas","Armors"], 
+    Mobs: ["Mobs"],
+  },
 };
 
 async function fetchDataBase() {
@@ -11,7 +19,9 @@ async function fetchDataBase() {
 
   for (const [key, value] of Object.entries(currentBase)) {
     if (pageMeta.content == "Home") {
-      messageDisplay(key,await GetSheet(key, value));
+      messageDisplay(key,await GetSheet(value));
+    } else if (pageMeta.content == "Database") {
+      RunDataBase(key,await GetSheet(value));
     }
   }
 }

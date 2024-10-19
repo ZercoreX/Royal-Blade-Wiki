@@ -1,6 +1,6 @@
 const SheetID = '1m-q3BGvsdo_PDZa00KS-mgZGeiEHIDWVuQLHOy058N8';
 
-async function fetchSheet(page,pageID) {
+async function fetchSheet(pageID) {
   try {
     const response = await fetch(`https://docs.google.com/spreadsheets/d/${SheetID}/gviz/tq?sheet=${pageID}&range=A2:Z`);
     let answer = await response.text();
@@ -16,8 +16,8 @@ async function fetchSheet(page,pageID) {
     });
 
     // console.log(database);
-    sessionStorage.setItem(`${page}-DataBase`, JSON.stringify(database));
-    return database;
+    sessionStorage.setItem(`${pageID}-DataBase`, JSON.stringify(database));
+    return JSON.parse(sessionStorage.getItem(`${pageID}-DataBase`));
 
   } catch (error) {
     console.error('Error fetching sheet data:', error);
@@ -25,10 +25,16 @@ async function fetchSheet(page,pageID) {
   }
 }
 
-function GetSheet(page,pageID) {
-  let data = JSON.parse(sessionStorage.getItem(`${page}-DataBase`)) || fetchSheet(page,pageID);
-  // let data = fetchSheet(page,pageID);
-  return data;
+async function GetSheet(pageIDs) {
+  const entries = await Promise.all(
+    pageIDs.map(async pageID => [
+      pageID,
+      JSON.parse(sessionStorage.getItem(`${pageID}-DataBase`)) || await fetchSheet(pageID)
+      // await fetchSheet(pageID)
+    ])
+  );
+
+  return Object.fromEntries(entries);
 }
 
 export { GetSheet };

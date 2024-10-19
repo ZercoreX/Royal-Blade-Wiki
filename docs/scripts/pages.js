@@ -16,20 +16,30 @@ pagesButtons.forEach(pButton => {
 // Load and manage tabs
 const tabButtons = tabsNav.querySelectorAll("button");
 
+function checklink() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedTab = urlParams.get('tab');
+
+    if (selectedTab) {
+        tabMeta.setAttribute('content', selectedTab);
+        return selectedTab;
+    }
+}
+
 function loadTab() {
     const activeTab = pageSectionContainer.querySelector(`#${tabMeta.content}`);
     activeTab?.classList.add("active");
-
-    let savedTab = sessionStorage.getItem('tab-meta') || tabMeta.content;
+    
+    let savedTab = checklink() || sessionStorage.getItem('tab-meta') || tabMeta.content;
     let activeTabSection = pageSectionContainer.querySelector(`#${savedTab}`);
-
+    
     if (!activeTabSection) {
         const fallbackTab = tabButtons[0].getAttribute('tab-data');
         sessionStorage.setItem('tab-meta', fallbackTab);
         activeTabSection = pageSectionContainer.querySelector(`#${fallbackTab}`);
         savedTab = fallbackTab;
     }
-
+    
     if (activeTabSection) {
         pageSectionContainer.querySelector(".active")?.classList.remove("active");
         activeTabSection.classList.add("active");
@@ -73,3 +83,4 @@ if (document.readyState === 'complete') {
 } else {
     window.addEventListener('load', loadTab);
 }
+

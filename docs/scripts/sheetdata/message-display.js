@@ -1,4 +1,4 @@
-import { initImageSlider } from './../slider.js';
+import { initImageSlider } from '../slider.js';
 
 function createMessageElement(messageData,tab) {
   const templateElement = document.querySelector('.message.template');
@@ -52,15 +52,25 @@ function createMessageElement(messageData,tab) {
       msg_title.querySelector('.title-1').innerHTML = messageData[2];
 
       const imgslist = template.querySelector('.image-slider .list');
-      const imgs = messageData[5]?.split('|') || [];
+      const imgs = messageData[5]?.split('| ') || [];
 
       imgs.forEach((imageSrc, index) => {
         const slide = document.createElement('div');
         slide.classList.add('slide');
-        slide.innerHTML = `<img src="${imageSrc}" alt="">`;
+        const img = document.createElement('img');
+        img.src = `https://res.cloudinary.com/dt6q0wrzm/image/upload/${imageSrc}.png`;
+        slide.appendChild(img);
         imgslist.appendChild(slide);
       });
       
+      if (imgs.length == 1) {
+        const buttons = template.querySelector('.image-slider .buttons');
+        buttons.style.display = 'none';
+        const dots = template.querySelector('.image-slider .dots');
+        dots.style.display = 'none';
+        imgslist.style.paddingBottom = '0'
+      }
+
       initImageSlider(template.querySelector('.image-slider'));
     } 
   }
@@ -79,7 +89,9 @@ function messageDisplay(tab,data) {
   const messageBox = document.querySelector(`#${tab} .messages-box`);
   if (!messageBox) { console.log(`Messages box not found in this tab ${tab}`); return; }
 
-  data.forEach((messageData, index) => {
+  let msgs = Object.keys(data)[0];
+
+  data[msgs].forEach((messageData, index) => {
       const messageElement = createMessageElement(messageData,tab);
       if (messageElement) {
           messageBox.appendChild(messageElement);
