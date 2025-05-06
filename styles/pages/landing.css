@@ -1,0 +1,196 @@
+/* landing img ====================== */
+.landing-background {
+  width: calc(100vw + 4px);
+  height: calc(100vh + 4px);
+  position: fixed;
+  top: -2px;
+  left: -2px;
+  background: url(/assets/imgs/landing.png) center/cover no-repeat;
+  filter: blur(4.5px);
+  z-index: -2;
+}
+
+.landing-background .shadow {
+  width: 102vw;
+  height: 102vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.555);
+  z-index: -1;
+}
+
+/* ================================== */
+/* ================================== */
+header,
+footer {
+  height: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  justify-content: left;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  justify-content: right;
+  flex-direction: row-reverse;
+  background-color: var(--nav);
+}
+
+/* ================================== */
+/* ================================== */
+.skew {
+  height: 100%;
+  background-color: rgb(231, 172, 26);
+  transform: skew(-45deg);
+  position: relative;
+}
+
+.skew.long {
+  width: 40%;
+}
+.skew.short {
+  width: 8%;
+}
+
+.skew.long::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(231, 172, 26);
+  width: 10%;
+  height: 100%;
+  z-index: 1;
+  transform: skewX(45deg);
+}
+
+footer .skew.long::before {
+  right: 0;
+}
+
+/* ================================== */
+/* .landing ============================= */
+.landing {
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.landing > .container {
+  height: 70vh;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  padding: 0 50px;
+}
+
+@media (max-width: 761px) {
+  .landing > .container {
+    grid-template-rows: 40% 60%;
+  }
+}
+
+.landing > .container > :last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ================================== */
+/* descriptions ===================== */
+.description {
+  text-transform: uppercase;
+}
+
+.description p {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 1.7vw;
+  text-shadow: #000000 1px 1px 6px;
+}
+@media (max-width: 1440px) {
+  .description p {
+    font-size: 2.2vw;
+  }
+}
+@media (max-width: 1024px) {
+  .description p {
+    font-size: 2.5vw;
+  }
+}
+@media (max-width: 1024px) {
+  .description p {
+    font-size: 2.5vw;
+  }
+}
+@media (max-width: 991px) {
+  .description p {
+    font-size: 3vw;
+  }
+}
+@media (max-width: 768px) {
+  .description p {
+    font-size: 3.6vw;
+  }
+}
+@media (max-width: 561px) {
+  .description p {
+    font-size: 5vw;
+  }
+}
+
+.description hr {
+  width: 50%;
+  margin: 20px auto;
+}
+
+/* ================================== */
+/* action buttons =================== */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-buttons .action {
+  background-color: #267ecf4b;
+  width: fit-content;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  text-shadow: #000000 1px 1px 2px;
+  filter: drop-shadow(1px 1px 8px rgba(0, 0, 0, 0.66));
+  border-radius: 6px;
+  line-height: 20px;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  text-align: center;
+  transition: background-color var(--trans-dur), color var(--trans-dur);
+}
+
+@media (max-width: 424px) {
+  .action-buttons .action {
+    font-size: 18px;
+  }
+}
+
+.action-buttons .action:hover {
+  background-color: #ffffff41;
+}
+
+.action-buttons .action:hover span {
+  color: var(--accent-color);
+}

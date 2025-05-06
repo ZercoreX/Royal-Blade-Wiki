@@ -1,0 +1,104 @@
+---
+layout: default
+title: Home
+tab: Overview
+permalink: /Home/
+---
+
+<link rel="stylesheet" href="/styles/pages/home.css" />
+<link rel="stylesheet" href="/styles/image-viewer.css" />
+
+<nav name="tabs-nav" class="box-shadow">
+  <ul>
+    <li><button tab-data="Overview">Overview</button></li>
+    <li><button tab-data="Updates">Updates</button></li>
+    <li><button tab-data="News">News</button></li>
+  </ul>
+  <button class="nav-toggle box-shadow" target="tabs-nav">
+    <ion-icon name="caret-forward" class="icon"></ion-icon>
+    <ion-icon name="caret-back" class="icon"></ion-icon>
+  </button>
+</nav>
+
+<div class="tabs-section box-shadow">
+  <div class="tab-thum"></div>
+
+  <!-- ================================================================== -->
+  <!-- overview ========================================================= -->
+  <section class="tab" id="Overview">
+    <h2 class="tab-title box-shadow">Overview</h2>
+
+    <div class="thum-container">
+      <div class="wiki-thumbnail"></div>
+    </div>
+
+    <h3 class="centered-heading">Welcome to the official Royal-Blade wiki!</h3>
+
+    <p>Your comprehensive guide to everything in the world of Royal-Blade!</p>
+    <br />
+    <p>
+      Royal-Blade is an immersive open-world RPG developed by Royal Verse Studio and founded by <span>&lt;/Zercore&gt;.</span>
+      Set in a vast, intricately designed world, players will embark on epic quests, discover hidden secrets, and battle formidable enemies as they progress through a rich
+      storyline filled with diverse characters and challenging environments.
+    </p>
+    <br />
+    <p>
+      Currently in its Early Access phase, Royal-Blade is actively being developed, with regular updates and new features being added. This wiki serves as the only official source
+      for gameplay information, mechanics, and in-depth guides, created and maintained by Zercore, the game's developer. Whether you're new to the game or a seasoned adventurer,
+      this wiki aims to simplify and enhance your gameplay experience.
+    </p>
+    <br />
+    <p>
+      This wiki is not only a tool for players but a living, evolving resource that will grow alongside the game as new updates, expansions, and features are introduced. Stay tuned
+      for the latest information and insider tips as Royal-Blade’s development progresses. Whether you’re seeking lore, tips for boss fights, or insight into new content, the
+      Royal-Blade wiki has everything you need.
+    </p>
+    <br />
+
+    <h3>>> Royal-Blade official links</h3>
+    <ul class="social-links">
+      <li>
+        <a href="{{ site.social.game }}" target="_blank" style="--c: #24ddaf" class="box-shadow">
+          <ion-icon name="game-controller" class="icon" style="--c: #33aa8c"></ion-icon>
+          <span>Royal Blade</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ site.social.discord }}" target="_blank" style="--c: rgb(88, 101, 242)" class="box-shadow">
+          <ion-icon name="logo-discord" class="icon" style="--c: rgb(88, 101, 242)"></ion-icon>
+          <span>Discord Community</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ site.social.group }}" target="_blank" style="--c: #bfc236" class="box-shadow">
+          <ion-icon name="people" class="icon" style="--c: #bfc236"></ion-icon>
+          <span>Royal Verse Group</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ site.social.gameTwitter }}" target="_blank" style="--c: rgb(29, 161, 242)" class="box-shadow">
+          <ion-icon name="logo-twitter" class="icon" style="--c: rgb(29, 161, 242)"></ion-icon>
+          <span>Royal Verse News</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <!-- ================================================================== -->
+  <!-- updates ========================================================== -->
+  <!-- (fixes: --c: #ff4900) (changes: --c: #045dc2) (new: --c: #00af0d) -->
+  <section class="tab" id="Updates">
+    <h2 class="tab-title box-shadow">Updates</h2>
+    <p>Here, you will find the detailed notes about all the updates & versions.</p>
+    <br />
+    <div class="messages-box"></div>
+  </section>
+  <!-- ================================================================== -->
+  <!-- News ============================================================= -->
+  <section class="tab" id="News">
+    <h2 class="tab-title box-shadow">News</h2>
+    <p>News/Leaks for the coming changes, Updates.</p>
+    <br />
+    <div class="messages-box"></div>
+  </section>
+  <!-- ================================================================== -->
+</div>

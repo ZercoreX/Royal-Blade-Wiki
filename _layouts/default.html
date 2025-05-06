@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico" />
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="/styles/Fonts/Kanit/Kanit.css" />
+    <link rel="stylesheet" href="/styles/Fonts/Rubik/Rubik.css" />
+
+    <!-- darkmode preload -->
+    <script type="module" src="/scripts/PreLoad/darkmode.js"></script>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="/styles/essential.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="page" content="{{ page.title }}" />
+    <meta name="tab" content="{{ page.tab }}" />
+
+    <!-- scripts -->
+    <script type="module" src="/scripts/PreLoad/init.js"></script>
+  </head>
+  <body>
+    <!-- header ========================================== -->
+    <header class="box-shadow">
+      <div class="container">
+        <a href="/index.html" class="wiki-logo">
+          <div class="wiki-icon"><div></div></div>
+          <div class="wiki-title">
+            <span>Royal Blade Wiki</span>
+          </div>
+        </a>
+
+        <div>
+          <button class="nav-toggle" target="pages-nav">
+            <ion-icon name="menu" class="icon"></ion-icon>
+          </button>
+          <button id="theme-switch">
+            <ion-icon name="moon" class="icon"></ion-icon>
+            <ion-icon name="sunny" class="icon"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- nan ============================================= -->
+    <nav class="box-shadow" name="pages-nav">
+      <div class="container">
+        <ul>
+          <li><a href="/Home/?tab=Overview" page-data="Home">Home</a></li>
+          <li><a href="/Mechanics/?tab=Character" page-data="Mechanics">Mechanics</a></li>
+          <li><a href="/Database/?tab=Items" page-data="DataBase">DataBase</a></li>
+          <li><a href="/Universes/?tab=Markets" page-data="Universes">Universes</a></li>
+          <li><a href="/Store/Products" page-data="Store">Store</a></li>
+          <li><a href="" page-data="Market" class="disabled">Market</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- scroll-to-top =================================== -->
+    <button class="scroll-to-top box-shadow">
+      <ion-icon name="caret-up" class="icon"></ion-icon>
+    </button>
+
+    <!-- main ============================================ -->
+    <main>
+      <div class="container">{{ content }}</div>
+    </main>
+
+    <!-- footer ========================================== -->
+    <footer class="box-shadow">
+      <div class="container">
+        <a href="/docs/index.html" class="wiki-logo">
+          <div class="wiki-icon"><div></div></div>
+          <div class="wiki-title">
+            <span>Royal Blade Wiki</span>
+          </div>
+        </a>
+
+        <ul>
+          <li>
+            <a href="{{ site.social.game }}" target="_blank" class="game">
+              <ion-icon name="game-controller" class="icon" style="--c: #33aa8c"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="{{ site.social.discord }}" target="_blank" class="discord">
+              <ion-icon name="logo-discord" class="icon" style="--c: rgb(88, 101, 242)"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="{{ site.social.group }}" target="_blank" class="group">
+              <ion-icon name="people" class="icon" style="--c: #bfc236"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="{{ site.social.gameTwitter }}" target="_blank" class="twitter">
+              <ion-icon name="logo-twitter" class="icon" style="--c: rgb(29, 161, 242)"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+        <span class="credits">
+          Developed by
+          <a href="{{ site.social.creatorTwitter }}" target="_blank">&lt;/ Zercore &gt;</a>
+
+          &copy; 2024 - 2025
+        </span>
+      </div>
+    </footer>
+
+    <!-- scripts ========================================= -->
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

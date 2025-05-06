@@ -1,0 +1,243 @@
+/* .image-slider */
+.image-slider {
+  margin: 20px auto;
+  padding: 0 15px;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  display: none;
+}
+.image-slider:has(.list:empty) {
+  display: none;
+}
+
+.image-slider .list {
+  padding-bottom: 30px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: transform var(--trans-dur) ease-in-out;
+  gap: 20px;
+}
+.image-slider .slide {
+  flex: 0 0 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  transition: margin-left var(--trans-dur);
+}
+.image-slider .slide:has(img.active) {
+  margin-left: 15%;
+}
+.image-slider .slide img {
+  max-width: 100%;
+  max-height: 300px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  transform: scale(0.7);
+  transition: transform var(--trans-dur) ease-in-out;
+
+  -moz-box-shadow: var(--box-shadow) 0 0px 6px;
+  -webkit-box-shadow: var(--box-shadow) 0 0px 6px;
+  box-shadow: var(--box-shadow) 0 0px 6px;
+}
+.image-slider .slide img.active {
+  transform: scale(1);
+}
+
+.image-slider .buttons {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.image-slider .buttons button {
+  color: #000000;
+  background-color: var(--accent-color);
+  padding: 6px 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 8px;
+  pointer-events: all;
+}
+
+.dots {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dots li {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #a0a0a0;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: width var(--trans-dur);
+}
+.dots li.active {
+  width: 30px;
+  border-radius: 20px;
+  background-color: #333;
+}
+
+/* ======================== */
+/* ======================== */
+.image-view {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(3, 3, 3, 0.377);
+
+  z-index: 10;
+  display: none;
+  backdrop-filter: blur(3.5px);
+}
+.image-view .close {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  justify-content: center;
+  z-index: 3;
+}
+
+.image-view .close button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  font-weight: 600;
+  font-size: 22px;
+  position: relative;
+  font-family: "Kanit";
+  border-radius: 14px 4px;
+  line-height: 1.9;
+  transition: background-color var(--trans-dur);
+}
+.darkmode .image-view .close button {
+  color: #000000;
+}
+@media (hover: hover) {
+  .image-view .close button:hover {
+    background-color: rgb(231, 0, 0);
+  }
+}
+
+.image-view .img-holder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-view .img-holder::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(3, 3, 3, 0.514);
+  backdrop-filter: blur(4px) brightness(1.1);
+  filter: blur(4px);
+  border-radius: 24px 8px;
+}
+
+.image-view img {
+  width: auto;
+  max-width: 100vw;
+  height: 90vh;
+  object-fit: contain;
+  filter: drop-shadow(0px 0px 2px rgb(255, 255, 255));
+  border-radius: 8px;
+  z-index: 2;
+  max-height: 500px;
+}
+
+@media (max-width: 992px) {
+  .image-view img {
+    max-width: 75vw;
+  }
+}
+@media (max-width: 600px) {
+  .image-view img {
+    max-width: 80vw;
+  }
+}
+@media (max-width: 425px) {
+  .image-view .img-holder::before {
+    border-radius: 0;
+  }
+  .image-view img {
+    max-width: 100vw;
+  }
+}
+
+/* image slider full screen */
+.image-view .img-holder:has(.image-slider) {
+  width: 90%;
+  /* height: 80%; */
+}
+
+.image-view .img-holder .image-slider {
+  display: block;
+  max-width: 85%;
+  max-height: 100%;
+}
+
+.image-view .img-holder .image-slider img {
+  max-height: 700px;
+}
+
+.image-view .img-holder .image-slider .slide {
+  flex: 0 0 100%;
+}
+.image-view .img-holder .image-slider .slide:has(img.active) {
+  margin-left: 0;
+}
+
+.image-view .img-holder .image-slider .buttons button {
+  font-size: 28px;
+  width: 50px;
+}
+
+.image-view .img-holder .image-slider .list {
+  padding-bottom: 40px;
+}
+
+.image-view .img-holder .image-slider .dots li {
+  width: 24px;
+  height: 24px;
+}
+.image-view .img-holder .image-slider .dots li.active {
+  width: 46px;
+}
+
+@media (max-width: 992px) {
+  .image-view .img-holder:has(.image-slider) {
+    width: 100%;
+    height: 80%;
+  }
+  .image-view .img-holder .image-slider {
+    max-width: 100%;
+  }
+}

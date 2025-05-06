@@ -1,0 +1,236 @@
+/* ========================= */
+/* social-links ============ */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 10px;
+}
+.social-links li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.social-links a {
+  background-color: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 260px;
+  position: relative;
+  z-index: 1;
+  transition: color var(--trans-dur), background-color var(--trans-dur);
+}
+.social-links a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--c);
+  width: 8px;
+  height: 100%;
+  transition: width var(--trans-dur);
+  z-index: -1;
+}
+
+.social-links span {
+  color: var(--accent-color);
+  font-weight: 600;
+  transition: color var(--trans-dur), background-color var(--trans-dur);
+}
+.social-links .icon {
+  margin-right: 14px;
+  font-size: 22px;
+  background-color: var(--accent-color);
+  color: #242424;
+  padding: 6px 10px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (hover: hover) {
+  .social-links a:hover {
+    color: #242424;
+  }
+  .social-links a:hover::after {
+    width: 228px;
+  }
+  .social-links a:hover span {
+    color: #242424;
+  }
+}
+
+/* ========================= */
+/* message template ======== */
+.message {
+  background-color: var(--box-bg);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  position: relative;
+  min-height: 36px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.message.show {
+  max-height: fit-content;
+}
+
+.message.show .message,
+.message.show .update-notes,
+.message.show .message-label,
+.message.show .image-slider {
+  display: block;
+}
+
+/* msg */
+.msg-toggle {
+  width: 40px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-color);
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  border: none;
+  color: #000000;
+  border-radius: 8px;
+  z-index: 1;
+}
+.msg-toggle .icon {
+  transition: transform var(--trans-dur);
+}
+.message.show .msg-toggle .icon {
+  transform: rotatez(90deg);
+}
+
+/* msg header */
+.msg-header {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0px 8px;
+  align-items: center;
+  display: none;
+}
+.message.show .msg-header {
+  display: grid;
+}
+
+.msg-header .profile-pic {
+  margin: 6px;
+  grid-row: 1 / 3;
+  grid-column: 1;
+}
+
+.sender {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: end;
+  font-weight: 500;
+}
+
+.date {
+  grid-row: 2;
+  grid-column: 2;
+  align-self: start;
+}
+@media (max-width: 426px) {
+  .date {
+    width: 80%;
+  }
+}
+
+/* msg title */
+.msg-title {
+  margin: 6px 50px 4px 18px;
+}
+.msg-title .title-1 {
+  display: inline-block;
+  margin-right: 10px;
+}
+.msg-title .title-2 {
+  display: none;
+}
+
+.message.show .title-1 {
+  display: none;
+}
+.message.show .title-2 {
+  display: inline-block;
+}
+
+/* msg message */
+.message .message-label {
+  display: none;
+  padding: 0 20px;
+}
+.message .message-label:last-of-type {
+  padding-bottom: 20px;
+}
+.message .message-label:empty {
+  display: none;
+}
+
+/* update msg notes */
+.update-notes {
+  display: none;
+  padding: 10px 20px 18px;
+  position: relative;
+}
+.update-notes::before {
+  content: "";
+  width: 4px;
+  height: calc(100% - 60px);
+  background-color: var(--c, var(--acc-color));
+  position: absolute;
+  top: 40px;
+  left: 22px;
+}
+
+.update-notes h3 {
+  margin-bottom: 5px;
+}
+
+.update-notes li {
+  padding-left: 18px;
+  padding-bottom: 4px;
+  position: relative;
+}
+
+.update-notes li.sub-list::before {
+  content: "";
+  width: 3px;
+  height: calc(100% - 24px);
+  background-color: var(--c, var(--acc-color));
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.update-notes li.sub-list h4 {
+  margin-bottom: 4px;
+}
+
+.update-notes li h5 {
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 2px;
+}
+.update-notes li p {
+  font-size: 16px;
+  padding-left: 10px;
+  line-height: 1.2;
+  padding-bottom: 2px;
+}
+
+/* ========================= */
+#Updates .message .image-slider {
+  display: none;
+}
+#News .message .update-notes {
+  display: none;
+}
