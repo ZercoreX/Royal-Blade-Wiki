@@ -478,7 +478,7 @@ nav[name="tabs-nav"] ul button.active::before {
   width: calc(100% + 60px);
   margin: -30px -30px 30px;
   height: 180px;
-  background-image: url(/assets/imgs/tab-thum.png);
+  background-image: url(../assets/imgs/tab-thum.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

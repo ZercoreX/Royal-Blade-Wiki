@@ -297,8 +297,8 @@ ion-icon {
 }
 .wiki-icon div::before {
   content: "";
-  mask-image: url(/assets/svgs/wiki-logo-3.svg);
-  -webkit-mask-image: url(/assets/svgs/wiki-logo-3.svg);
+  mask-image: url(../assets/svgs/wiki-logo-3.svg);
+  -webkit-mask-image: url(../assets/svgs/wiki-logo-3.svg);
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
   mask-size: contain;
@@ -345,7 +345,7 @@ ion-icon {
 .wiki-thumbnail {
   width: 100%;
   height: 100%;
-  background-image: url(/assets/svgs/Wiki-Header-X.svg);
+  background-image: url(../assets/svgs/Wiki-Header-X.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
@@ -353,7 +353,7 @@ ion-icon {
 }
 @media (max-width: 761px) {
   .wiki-thumbnail {
-    background-image: url(/assets/svgs/Wiki-Header-Y.svg);
+    background-image: url(../assets/svgs/Wiki-Header-Y.svg);
   }
 }
 

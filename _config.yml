@@ -1,6 +1,8 @@
 title: Royal-Blade Wiki
 description: Documentation Source For The Royal Blade Experience.
-repository: ZercoreX/Royal-Blade-Wiki-2
+repository: ZercoreX/Royal-Blade-Wiki
+baseurl: "/Royal-Blade-Wiki"
+
 permalink: pretty
 
 social:
